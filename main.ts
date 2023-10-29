@@ -14,10 +14,12 @@ router.get("/", (context) => {
 })
     .get("/book", (context) => {
         context.response.body = Array.from(books.values());
+        console.log("display books")
     })
     .get("/book/:id", (context) => {
             if (books.has(context?.params?.id)) {
                 context.response.body = books.get(context.params.id);
+                console.log(`display book id=${context.params.id}`)
             }
         }
     );
